@@ -1,0 +1,1 @@
+"""Core render logic for AI Product Photo Studio."""
