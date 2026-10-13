@@ -1,0 +1,1 @@
+"""Render pipeline stages for AI Product Photo Studio."""
