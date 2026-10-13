@@ -1,0 +1,38 @@
+# ai-product-photo-studio — default runtime config
+app:
+  name: "AI Product Photo Studio"
+  version: "0.6.3"
+  locale: "en_US"
+
+paths:
+  weights_dir: "models/weights"
+  outputs_dir: "outputs"
+  cache_dir: "studio_cache"
+  presets_dir: "config/presets"
+
+compute:
+  backend: "auto"        # auto | cuda | directml | cpu
+  device_index: 0
+  fp16: true
+  max_resolution: 4096
+  batch_size: 4
+
+pipeline:
+  segment_background: true
+  relight: true
+  shadow_synthesis: true
+  reflection_pass: true
+  upscale: "lanczos"     # none | lanczos | esrgan
+  color_grade: "studio_neutral"
+
+export:
+  formats: ["png", "jpg", "webp"]
+  jpg_quality: 92
+  webp_quality: 88
+  embed_icc: true
+  transparent_bg: false
+
+logging:
+  level: "INFO"
+  json: false
+  file: "studio_cache/studio.log"
