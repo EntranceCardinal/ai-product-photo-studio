@@ -1,0 +1,22 @@
+# Weight registry. Remote URLs MUST carry a sha256 pin.
+models:
+  bg_segmenter:
+    file: "bg_segmenter_v3.onnx"
+    sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+    size_mb: 168
+    source: "local"
+  relight_diffusion:
+    file: "relight_sdxl_lite.safetensors"
+    sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+    size_mb: 2410
+    source: "local"
+  shadow_generator:
+    file: "shadow_gan_v2.onnx"
+    sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+    size_mb: 94
+    source: "local"
+  upscaler_esrgan:
+    file: "esrgan_product_x4.onnx"
+    sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+    size_mb: 67
+    source: "local"
