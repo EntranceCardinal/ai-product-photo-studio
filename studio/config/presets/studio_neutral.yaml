@@ -1,0 +1,10 @@
+# Color-grade preset — neutral e-commerce studio look.
+name: studio_neutral
+description: "Neutral white-balance grade tuned for marketplace listings."
+temperature_k: 5600
+tint: 0.0
+exposure_ev: 0.05
+contrast: 0.92
+saturation: 1.02
+highlights: -0.10
+shadows: 0.08
