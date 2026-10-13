@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-product-photo-studio"
+version = "0.6.3"
+description = "AI product photography generator — turn phone snaps into studio-grade product shots."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "AI Product Photo Studio contributors" }]
+keywords = ["product-photography", "diffusion", "relighting", "compositing", "desktop"]
+
+dependencies = [
+    "numpy>=1.26",
+    "pillow>=10.2",
+    "opencv-python>=4.9",
+    "pydantic>=2.6",
+    "PyYAML>=6.0",
+    "typer>=0.12",
+    "rich>=13.7",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+cuda = ["torch>=2.2", "torchvision>=0.17", "onnxruntime-gpu>=1.17"]
+directml = ["torch-directml>=0.2", "onnxruntime-directml>=1.17"]
+cpu = ["onnxruntime>=1.17"]
+cloud = ["httpx>=0.27", "tenacity>=8.2"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.4", "mypy>=1.9"]
+
+[project.scripts]
+studio = "studio.bootstrap:main"
+studio-batch = "studio.cli.batch_render:app"
+
+[tool.setuptools.packages.find]
+include = ["studio*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --cov=studio --cov-report=term-missing"
